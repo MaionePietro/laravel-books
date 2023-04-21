@@ -31,4 +31,23 @@ class GuestPageController extends Controller
         $new_book->save();
         return to_route('books.show', $new_book);
     }
+    public function edit(Book $book)
+    {
+        return view('books.edit', compact('book'));
+    }
+    public function update(Request $request, Book $book)
+    {
+        $data = $request->all();
+        $book->titolo = $data['titolo'];
+        $book->autore_id = $data['autore_id'];
+        $book->genere_id = $data['genere_id'];
+        $book->numero_copie = $data['numero_copie'];
+        $book->save();
+        return to_route('books.show', $book);
+    }
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return to_route('books.index');
+    }
 }

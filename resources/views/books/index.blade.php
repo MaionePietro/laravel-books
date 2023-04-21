@@ -10,12 +10,12 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $book->titolo }}</h5>
                                 <p class="card-text">{{ $book->numero_copie }}</p>
-                                {{-- <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">EDIT</a> --}}
-                                {{-- <form action="{{ route('comics.destroy', $comic) }}" method="POST"> --}}
-                                    {{-- @csrf --}}
-                                    {{-- @method('DELETE') --}}
-                                    {{-- <input type="submit" class="btn btn-danger" value="DELETE"> --}}
-                                {{-- </form> --}}
+                                <a href="{{ route('books.edit', $book) }}" class="btn btn-warning">EDIT</a>
+                                <form action="{{ route('books.destroy', $book) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" class="btn btn-danger" value="DELETE">
+                                </form>
                             </div>
                         </a>
                     </div>
