@@ -5,7 +5,7 @@
         <div class="row row-cols-4">
             @foreach ($books as $book)
                 <div class="col">
-                    <div class="card text-center" style="width: 18rem;">
+                    <div class="card text-center m-2" style="width: 18rem;">
                         <a href="{{ route('books.show', $book->id) }}" style="text-decoration: none; color:black;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $book->titolo }}</h5>
