@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Folder\GuestPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/index', [GuestPageController::class, 'index'])->name('books.index');
+Route::get('/books/create', [GuestPageController::class, 'create'])->name('books.create');
+Route::get('/books/{book}', [GuestPageController::class, 'show'])->name('books.show');
+Route::post('/books', [GuestPageController::class, 'store'])->name('books.store');
