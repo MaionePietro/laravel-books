@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('generes', function (Blueprint $table) {
-            $table->id();
-            $table->string('genere');
-            $table->timestamps();
+        Schema::table('books', function (Blueprint $table) {
+            $table->unsignedBigInteger('genere_id')->nullable()->after('id');
+            $table->foreign('genere_id')->references('id')->on('generes');
         });
     }
 
@@ -27,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('generes');
+        Schema::table('books', function (Blueprint $table) {
+            $table->dropForeign(['genere_id']);
+            $table->dropColumn('genere_id');
+        });
     }
 };

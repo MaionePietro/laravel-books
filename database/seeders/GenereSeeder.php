@@ -19,7 +19,7 @@ class GenereSeeder extends Seeder
 
         foreach ($types as $type_name) {
             $new_type = new Genere();
-            $new_type->name = $type_name;
+            $new_type->genere = $type_name;
             $new_type->save();
         }
     }
